@@ -1,4 +1,4 @@
-from llm.llm import LLM
+from llm import LLM
 
 class ImageInfoExtractor:
     def __init__(self, llm: LLM):
