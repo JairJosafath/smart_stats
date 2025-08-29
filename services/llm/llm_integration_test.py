@@ -19,7 +19,7 @@ class TestLocalLLMInference(unittest.TestCase):
     def test_ollama_image_extraction(self):
         llm=Ollama(model_name="qwen2.5vl:7b", base_url="http://localhost:11434")
         extractor = ImageInfoExtractor(llm=llm)
-        image_path = "services/FN_stats.jpg"
+        image_path = "services/llm/FN_stats.jpg"
         
         response = extractor.extract_info(image_location=image_path)
         expected_stats = [
