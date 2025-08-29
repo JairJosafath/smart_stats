@@ -25,7 +25,7 @@ class TestLocalLLMInference(unittest.TestCase):
         expected_stats = [
             "Eliminations: 7",
             "Assists: 0",
-            "Distance Traveled: 1km",
+            "Distance Traveled: 1 km",
             "Hits: 949",
         ]
         print("Extraction Response:", response)
