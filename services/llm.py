@@ -1,4 +1,4 @@
-from ollama import chat as ollama_chat, ChatResponse
+from ollama import Client
 
 class LLM:
     def __init__(self, system_prompt:str="", few_shot_examples:str=""):
@@ -10,9 +10,10 @@ class Ollama(LLM):
         super().__init__()
         self.model_name = model_name
         self.base_url = base_url
+        self.client = Client(host=base_url)
 
     def chat(self, prompt):
-        return ollama_chat(
+        return self.client.chat(
             model=self.model_name, 
             messages=[
                 {
