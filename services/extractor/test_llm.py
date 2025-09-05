@@ -1,4 +1,5 @@
-from services.extractor.llm import LLM, Ollama, Bedrock, ImageInfoExtractor
+from services.extractor.llm import LLM, Ollama, Bedrock
+from services.extractor.extractor import ImageInfoExtractor
 
 def test_llm_initialization():
     llm = LLM(system_prompt="You are a helpful assistant.", few_shot_examples="Example 1")

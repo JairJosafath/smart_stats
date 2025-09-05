@@ -1,4 +1,3 @@
-import os
 from ollama import Client
 
 class LLM:
@@ -6,14 +5,22 @@ class LLM:
         self.system_prompt = system_prompt
         self.few_shot_examples = few_shot_examples
 
+    def extract_info(self, image_location: str) -> str | None:
+        raise NotImplementedError("This method should be overridden by subclasses.")
+    
+    def chat(self, prompt: str) -> str | None:
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
 class Ollama(LLM):
     def __init__(self, model_name, base_url="http://localhost:11434"):
         super().__init__()
         self.model_name = model_name
         self.base_url = base_url
         self.client = Client(host=base_url)
+        self.extract_info = self.extract_info_ollama
+        self.chat = self.chat_ollama
 
-    def chat(self, prompt):
+    def chat_ollama(self, prompt):
         return self.client.chat(
             model=self.model_name, 
             messages=[
@@ -36,7 +43,7 @@ class Ollama(LLM):
             stream=False,
         ).message.content
     
-    def extract_info(self, image_location: str) -> str:
+    def extract_info_ollama(self, image_location: str) -> str | None:
          return self.client.chat(
             model=self.model_name, 
             messages=[
@@ -60,36 +67,18 @@ class Ollama(LLM):
             stream=False,
          ).message.content
         
-
 class Bedrock(LLM):
     def __init__(self, model_id, region):
         super().__init__()
         self.model_id = model_id
         self.region = region
+        self.extract_info = self.extract_info_bedrock
+        self.chat = self.chat_bedrock
 
-    def chat(self, prompt):
-        # Mocked response for testing purposes
-        if prompt == "What is the capital of France?":
-            return "The capital of France is Paris."
-        return "Mocked response from Bedrock model."
+    def chat_bedrock(self, prompt):
+        raise NotImplementedError("Bedrock chat method is not implemented.")
     
-    def extract_info(self, image_location: str) -> str:
-        return "Mocked image info extraction."
+    def extract_info_bedrock(self, image_location: str) -> str:
+        raise NotImplementedError("Bedrock extract_info method is not implemented.")
 
-class ImageInfoExtractor:
-    def __init__(self, llm: LLM):
-        llm.system_prompt = """
-        You are an expert at analyzing images and extracting relevant information. The information will be statistics retrieved from the image, which is a screenshot of in-game statistics."""
-        llm.few_shot_examples = """
-        **image description**: A screenshot showing a player's in-game statistics for a eating contest event. The stats include burgers eaten, spiceness level, and time taken.
-        **extracted stats**:
-        Burgers Eaten: 15
-        Spiceness Level: 3
-        Time Taken: 2 minutes
-        """
-        self.llm = llm
-        self.host_path = os.getcwd() + "/"
-
-    def extract_info(self, image_location: str) -> str:
-        return self.llm.extract_info(image_location=self.host_path + image_location)
         
