@@ -1,6 +1,7 @@
 from services.extractor.llm import LLM
 import os
 
+
 class ImageInfoExtractor:
     def __init__(self, llm: LLM):
         llm.system_prompt = """
@@ -15,5 +16,5 @@ class ImageInfoExtractor:
         self.llm = llm
         self.host_path = os.getcwd() + "/"
 
-    def extract_info(self, image_location: str) -> str|None:
+    def extract_info(self, image_location: str) -> str | None:
         return self.llm.extract_info(image_location=self.host_path + image_location)

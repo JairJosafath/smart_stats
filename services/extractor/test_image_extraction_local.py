@@ -19,6 +19,8 @@ def test_image_extraction():
             "Hits: 949",
         ]
         for stat in expected_stats:
+            if response is None:
+                raise ValueError("LLM response is None")
             assert stat in response, (
                 f"Expected '{stat}' to be in the response: {response}"
             )

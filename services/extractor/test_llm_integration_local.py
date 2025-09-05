@@ -1,4 +1,4 @@
-from services.extractor.llm import Ollama, LLM
+from services.llm.llm import Ollama, LLM
 
 
 def test_inference():
