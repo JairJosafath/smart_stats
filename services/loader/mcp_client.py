@@ -6,9 +6,16 @@ from llama_index.llms.ollama import Ollama
 
 class MCPClient:
     def __init__(self, url: str, llm: Ollama | BedrockConverse):
-        spec = McpToolSpec(BasicMCPClient(command_or_url=url))
-        tools = spec.to_tool_list()
-        self.agent = InterpreterAgent(llm=llm, tools=tools)
+        self.spec = McpToolSpec(BasicMCPClient(command_or_url=url))
+        self.llm = llm
 
-    def interpret(self, info: str):
-        return self.agent.interpret(info=info)
+    async def interpret(self, info: str):
+        tools = await self.spec.to_tool_list_async()
+        self.agent = InterpreterAgent(llm=self.llm, tools=tools)
+        print(
+            f"Initialized MCPClient with tools: {[tool.metadata.get_name() for tool in tools]}",
+        )
+
+        result = await self.agent.interpret(info=info)
+
+        return result

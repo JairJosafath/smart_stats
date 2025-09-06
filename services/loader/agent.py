@@ -1,7 +1,7 @@
 from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.llms.ollama import Ollama
 from llama_index.core.agent.workflow import FunctionAgent
-from llama_index.core.workflow import Context
+from llama_index.core.workflow import Context, StopEvent
 from llama_index.core.tools import FunctionTool
 
 
@@ -14,7 +14,7 @@ class InterpreterAgent:
         self.llm = llm
         self.tools = tools
 
-    def interpret(self, info: str):
+    async def interpret(self, info: str):
         agent = FunctionAgent(
             name="InterpreterAgent",
             llm=self.llm,
@@ -24,4 +24,14 @@ class InterpreterAgent:
         )
         context = Context(agent)
 
-        return agent.run(user_msg=info, ctx=context)
+        handler = agent.run(user_msg=info, ctx=context)
+
+        print("Starting to stream events...")
+
+        async for event in handler.stream_events():
+            if isinstance(event, StopEvent):
+                print(f"Workflow completed with result: {event.result}")
+            else:
+                print(f"Received event: {event}")
+
+        return "OK"
