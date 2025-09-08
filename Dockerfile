@@ -1,13 +1,18 @@
-FROM public.ecr.aws/lambda/python:3.12
+FROM python:slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 ARG service
 ENV SERVICE="services/${service}"
 
-COPY $SERVICE ${LAMBDA_TASK_ROOT}
-COPY pyproject.toml ${LAMBDA_TASK_ROOT}
-COPY uv.lock ${LAMBDA_TASK_ROOT}
+WORKDIR $SERVICE
 
-RUN uv pip install -r ${LAMBDA_TASK_ROOT}/pyproject.toml --system
+COPY pyproject.toml .
+COPY uv.lock .
 
-CMD [ "app.py" ]
+RUN uv venv && . .venv/bin/activate \
+    && uv pip install -r pyproject.toml  \
+    && uv sync
+
+COPY $SERVICE .
+
+CMD [ "uv", "run", "app.py" ]
