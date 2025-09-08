@@ -10,6 +10,12 @@ class InterpreterAgent:
         self.system_prompt = """
            You are an AI assistant for Tool Calling.
 You need to work with tools.
+
+First make sure you understand what actions to take.
+Plan those actions out step by step.
+Then call the tools you need to complete the task.
+
+Sometimes you need to use the output of one tool as input to another tool.
             """
         self.llm = llm
         self.tools = tools

@@ -3,7 +3,7 @@ from fastmcp import FastMCP
 mcp = FastMCP("StatsLoader")
 
 
-def add_stat_to_db(stat_name: str, value: str, user_name) -> str:
+def add_stat_to_db(stat_name: str, value: str, user_id) -> str:
     # Simulate adding a stat to a database
     print(f"Adding stat to DB: {stat_name} = {value}", flush=True)
     return f"Stat {stat_name} with value {value} added to database."
@@ -12,7 +12,7 @@ def add_stat_to_db(stat_name: str, value: str, user_name) -> str:
 def get_user_from_db(user_name: str) -> str:
     # Simulate retrieving a user from a database
     print(f"Retrieving user from DB: {user_name}", flush=True)
-    return f"User {user_name} found in database."
+    return f"User {user_name} found in database. with ID 12345"
 
 
 def get_users_from_db() -> str:
@@ -23,10 +23,10 @@ def get_users_from_db() -> str:
 
 @mcp.tool(
     name="add_stat_to_db",
-    description="Add a game stat to the database.",
+    description="Add a game stat to the database. using the user_id of the user",
 )
-def add_stat_to_db_tool(stat_name: str, value: str, user_name: str) -> str:
-    return add_stat_to_db(stat_name, value, user_name)
+def add_stat_to_db_tool(stat_name: str, value: str, user_id: str) -> str:
+    return add_stat_to_db(stat_name, value, user_id)
 
 
 @mcp.tool(
