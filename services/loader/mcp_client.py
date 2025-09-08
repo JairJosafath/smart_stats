@@ -6,7 +6,8 @@ from llama_index.llms.ollama import Ollama
 
 class MCPClient:
     def __init__(self, url: str, llm: Ollama | BedrockConverse):
-        self.spec = McpToolSpec(BasicMCPClient(url))
+        self.client = BasicMCPClient(url)
+        self.spec = McpToolSpec(self.client)
         self.llm = llm
 
     async def interpret(self, info: str):

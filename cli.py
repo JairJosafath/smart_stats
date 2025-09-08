@@ -6,7 +6,7 @@ import asyncio
 async def run():
     client = MCPClient(
         url="http://localhost:6275/mcp",
-        llm=Ollama(model="qwen3:0.6b", base_url="http://localhost:11434", thinking=False),
+        llm=Ollama(model="qwen3:0.6b"),
     )
     assert client is not None
 
@@ -19,5 +19,5 @@ async def run():
     print(f"Interpretation result: {result}")
 
 
-def test_mcp_client():
+if __name__ == "__main__":
     asyncio.run(run())
