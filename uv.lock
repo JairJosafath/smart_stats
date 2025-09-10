@@ -1933,6 +1933,7 @@ dependencies = [
     { name = "llama-index-tools-mcp" },
     { name = "ollama" },
     { name = "pytest" },
+    { name = "python-multipart" },
 ]
 
 [package.metadata]
@@ -1945,6 +1946,7 @@ requires-dist = [
     { name = "llama-index-tools-mcp", specifier = ">=0.4.0" },
     { name = "ollama", specifier = ">=0.5.3" },
     { name = "pytest", specifier = ">=8.4.1" },
+    { name = "python-multipart", specifier = ">=0.0.20" },
 ]
 
 [[package]]

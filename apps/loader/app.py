@@ -12,7 +12,7 @@ QWEN_17B_MODEL = "qwen3:1.7b"
 DEEPSEEK_R1_7B_MODEL = "deepseek-r1:7b"
 
 
-async def app(info: str) -> list[str]:
+async def app(info: str) -> list[dict]:
     client = MCPClient(
         url=f"{host}:9999/mcp",
         llm=Ollama(
@@ -31,8 +31,10 @@ async def app(info: str) -> list[str]:
 @fast_api.post("/")
 async def load(input: dict):
     info = input["content"]
+    username = input["username"]
+    instr = f"For the user {username}, the following stats were extracted: \n{info}.\n Store each of these stats in the database"
 
-    result = await app(info)
+    result = await app(instr)
 
     return {"result": result}
 

@@ -1,8 +1,8 @@
-from services.llm.llm import Ollama, LLM
+from services.extractor.llm import Ollama, LLM
 
 
 def test_inference():
-    llms: list[LLM] = [] 
+    llms: list[LLM] = []
     llms.append(Ollama(model_name="qwen3:0.6b", base_url="http://localhost:11434"))
 
     for llm in llms:

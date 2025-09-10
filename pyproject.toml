@@ -13,5 +13,6 @@ dependencies = [
     "llama-index-tools-mcp>=0.4.0",
     "ollama>=0.5.3",
     "pytest>=8.4.1",
+    "python-multipart>=0.0.20",
 ]
 

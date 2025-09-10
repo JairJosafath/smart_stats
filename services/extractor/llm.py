@@ -1,15 +1,17 @@
 from ollama import Client
 
+
 class LLM:
-    def __init__(self, system_prompt:str="", few_shot_examples:str=""):
+    def __init__(self, system_prompt: str = "", few_shot_examples: str = ""):
         self.system_prompt = system_prompt
         self.few_shot_examples = few_shot_examples
 
-    def extract_info(self, image_location: str) -> str | None:
+    def extract_info(self, image_location: str) -> str:
         raise NotImplementedError("This method should be overridden by subclasses.")
-    
+
     def chat(self, prompt: str) -> str | None:
         raise NotImplementedError("This method should be overridden by subclasses.")
+
 
 class Ollama(LLM):
     def __init__(self, model_name, base_url="http://localhost:11434"):
@@ -22,51 +24,45 @@ class Ollama(LLM):
 
     def chat_ollama(self, prompt):
         return self.client.chat(
-            model=self.model_name, 
+            model=self.model_name,
             messages=[
+                {"role": "system", "content": self.system_prompt},
                 {
-                    "role": "system", 
-                    "content": self.system_prompt
-                }, 
-                  {
-                    "role": "user", 
+                    "role": "user",
                     "content": f"""
                                 Example(s):
                                 {self.few_shot_examples}
-                                """
-                }, 
-                {
-                    "role": "user", 
-                    "content": prompt
-                }
+                                """,
+                },
+                {"role": "user", "content": prompt},
             ],
             stream=False,
         ).message.content
-    
-    def extract_info_ollama(self, image_location: str) -> str | None:
-         return self.client.chat(
-            model=self.model_name, 
+
+    def extract_info_ollama(self, image_location: str) -> str:
+        result = self.client.chat(
+            model=self.model_name,
             messages=[
+                {"role": "system", "content": self.system_prompt},
                 {
-                    "role": "system", 
-                    "content": self.system_prompt
-                }, 
-                {
-                    "role": "user", 
+                    "role": "user",
                     "content": f"""
                                 Example(s):
                                 {self.few_shot_examples}
-                                """
-                }, 
+                                """,
+                },
                 {
-                    "role": "user", 
-                    'content': 'extract the stats from the image, also give some context about the stats if neccessary, be concise and to the point',
-                    'images': [image_location]
-                }
+                    "role": "user",
+                    "content": "extract the stats from the image, also give some context about the stats if neccessary, be concise and to the point",
+                    "images": [image_location],
+                },
             ],
             stream=False,
-         ).message.content
-        
+        ).message.content
+
+        return result if result else "No response from Ollama."
+
+
 class Bedrock(LLM):
     def __init__(self, model_id, region):
         super().__init__()
@@ -77,8 +73,6 @@ class Bedrock(LLM):
 
     def chat_bedrock(self, prompt):
         raise NotImplementedError("Bedrock chat method is not implemented.")
-    
+
     def extract_info_bedrock(self, image_location: str) -> str:
         raise NotImplementedError("Bedrock extract_info method is not implemented.")
-
-        

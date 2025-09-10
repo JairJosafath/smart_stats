@@ -58,7 +58,7 @@ You must use tools to complete the task.
                 print(f"Tool {event.tool_name} returned {event.tool_output}")
                 tool_calls.append(event)
 
-        return [tool_call.model_dump_json() for tool_call in tool_calls]
+        return [tool_call.model_dump() for tool_call in tool_calls]
 
     def set_agent(self):
         agent = FunctionAgent(
