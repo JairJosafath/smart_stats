@@ -1,6 +1,6 @@
 docker build -t smart_stats_loader:latest --build-arg service=loader .
 
-docker run --name smart_stats_loader smart_stats_loader:latest
+docker run --name smart_stats_loader -e HOST="http://host.docker.internal" smart_stats_loader:latest
 
 
 #mcp_server

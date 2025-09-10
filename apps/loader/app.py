@@ -1,20 +1,25 @@
 from services.loader.mcp_client import MCPClient
 from llama_index.llms.ollama import Ollama
 import asyncio
+import os
 
-host = "http://localhost"
-docker_host = "http://host.docker.internal"
+host = os.getenv("HOST", "http://localhost")
 
 QWEN_06B_MODEL = "qwen3:0.6b"
-QWEN_17B_MODEL= "qwen3:1.7b"
+QWEN_17B_MODEL = "qwen3:1.7b"
 DEEPSEEK_R1_7B_MODEL = "deepseek-r1:7b"
+
 
 async def main() -> None:
     client = MCPClient(
         url=f"{host}:9999/mcp",
-        llm=Ollama(model=QWEN_06B_MODEL, base_url=f"{host}:11434", thinking=False, temperature=0),
+        llm=Ollama(
+            model=QWEN_06B_MODEL,
+            base_url=f"{host}:11434",
+            thinking=False,
+            temperature=0,
+        ),
     )
-    
 
     result = await client.interpret(
         info="""
