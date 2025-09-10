@@ -12,7 +12,7 @@ DEEPSEEK_R1_7B_MODEL = "deepseek-r1:7b"
 async def main() -> None:
     client = MCPClient(
         url=f"{host}:9999/mcp",
-        llm=Ollama(model=DEEPSEEK_R1_7B_MODEL, base_url=f"{host}:11434", thinking=False, temperature=.9),
+        llm=Ollama(model=QWEN_06B_MODEL, base_url=f"{host}:11434", thinking=False, temperature=0),
     )
     
 

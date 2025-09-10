@@ -24,10 +24,20 @@ You must use tools to complete the task.
         self.set_agent()
 
     async def interpret(self, info: str):
-        for tool in self.tools:
-            print(
-                f"><><><><><><<><> Tool available: {tool.metadata.get_name()} - {tool.metadata.description}"
-            )
+        print(f"""Agent info:
+              input: {info}
+              model: {self.llm.model}
+              host: {
+            self.llm.base_url if isinstance(self.llm, Ollama) else self.llm.endpoint_url
+        }
+              tools: {
+            [
+                f"name:{tool.metadata.get_name()} descr:{tool.metadata.description} \
+                        "
+                for tool in self.tools
+            ]
+        }""")
+
         agent = self.agent
 
         context = Context(agent)
