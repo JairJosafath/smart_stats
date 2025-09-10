@@ -1,7 +1,7 @@
 from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.llms.ollama import Ollama
 from llama_index.core.agent.workflow import FunctionAgent, ToolCall, ToolCallResult
-from llama_index.core.workflow import Context
+from llama_index.core.workflow import Context, Event
 from llama_index.core.tools import FunctionTool
 
 
@@ -46,20 +46,19 @@ You must use tools to complete the task.
 
         print("Starting to stream events...")
 
-        saw_tool = False
+        tool_calls: list[Event] = []
 
         async for event in handler.stream_events():
             # log ALL event types while debugging
             print(f"[{event.__class__.__name__}]")
             if isinstance(event, ToolCall):
-                saw_tool = True
                 print(f"Calling tool {event.tool_name} with kwargs {event.tool_kwargs}")
+                tool_calls.append(event)
             elif isinstance(event, ToolCallResult):
                 print(f"Tool {event.tool_name} returned {event.tool_output}")
+                tool_calls.append(event)
 
-        if not saw_tool:
-            return "No tool was called during interpretation."
-        return "OK"
+        return [tool_call.model_dump_json() for tool_call in tool_calls]
 
     def set_agent(self):
         agent = FunctionAgent(

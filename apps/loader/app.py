@@ -1,16 +1,18 @@
 from services.loader.mcp_client import MCPClient
 from llama_index.llms.ollama import Ollama
-import asyncio
 import os
+from fastapi import FastAPI
+import uvicorn
 
 host = os.getenv("HOST", "http://localhost")
+fast_api = FastAPI()
 
 QWEN_06B_MODEL = "qwen3:0.6b"
 QWEN_17B_MODEL = "qwen3:1.7b"
 DEEPSEEK_R1_7B_MODEL = "deepseek-r1:7b"
 
 
-async def main() -> None:
+async def app(info: str) -> list[str]:
     client = MCPClient(
         url=f"{host}:9999/mcp",
         llm=Ollama(
@@ -21,14 +23,19 @@ async def main() -> None:
         ),
     )
 
-    result = await client.interpret(
-        info="""
-                     get the user named 'JohnDoe' from the database and add a stat 'high_score' with value '1500' for that user.
-                    """
-    )
+    result = await client.interpret(info)
 
-    print(f"Interpretation result: {result}")
+    return result
+
+
+@fast_api.post("/")
+async def load(input: dict):
+    info = input["content"]
+
+    result = await app(info)
+
+    return {"result": result}
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    uvicorn.run(fast_api, host="0.0.0.0", port=8000)
