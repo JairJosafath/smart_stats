@@ -16,6 +16,8 @@ Plan those actions out step by step.
 Then call the tools you need to complete the task.
 
 Sometimes you need to use the output of one tool as input to another tool.
+
+You must use tools to complete the task.
             """
         self.llm = llm
         self.tools = tools
@@ -27,7 +29,7 @@ Sometimes you need to use the output of one tool as input to another tool.
                 f"><><><><><><<><> Tool available: {tool.metadata.get_name()} - {tool.metadata.description}"
             )
         agent = self.agent
-        
+
         context = Context(agent)
 
         handler = agent.run(info, ctx=context)
@@ -46,9 +48,9 @@ Sometimes you need to use the output of one tool as input to another tool.
                 print(f"Tool {event.tool_name} returned {event.tool_output}")
 
         if not saw_tool:
-            print("No ToolCall events were emitted during streaming.")
+            return "No tool was called during interpretation."
         return "OK"
-    
+
     def set_agent(self):
         agent = FunctionAgent(
             name="Agent",
@@ -56,6 +58,6 @@ Sometimes you need to use the output of one tool as input to another tool.
             tools=self.tools,
             description="An agent that can work with Tools.",
             system_prompt=self.system_prompt,
-            streaming=False
+            streaming=False,
         )
-        self.agent= agent
+        self.agent = agent
