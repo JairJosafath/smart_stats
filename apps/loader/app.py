@@ -32,7 +32,7 @@ async def app(info: str) -> list[dict]:
 async def load(input: dict):
     info = input["content"]
     username = input["username"]
-    instr = f"For the user {username}, the following stats were extracted: \n{info}.\n Store each of these stats in the database"
+    instr = f"For a user with username {username}, the following stats were extracted: \n{info}.\n Store each of these stats in the database"
 
     result = await app(instr)
 

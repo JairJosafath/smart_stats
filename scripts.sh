@@ -9,6 +9,8 @@ docker run --name smart_stats_loader -e HOST="http://host.docker.internal" -p 99
 #mcp_server
 docker build -t smart_stats_mcp_server:latest --build-arg service=mcp_server .
 
+docker rm -f smart_stats_mcp_server || true
+
 docker run -p 9999:8000 --name smart_stats_mcp_server smart_stats_mcp_server:latest
 
 

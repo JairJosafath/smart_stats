@@ -18,6 +18,9 @@ Then call the tools you need to complete the task.
 Sometimes you need to use the output of one tool as input to another tool.
 
 You must use tools to complete the task.
+
+The stats can only be added to the databse using the user_id and not the username.
+Retrieve the user_id first before adding stats.
             """
         self.llm = llm
         self.tools = tools
