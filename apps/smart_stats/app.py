@@ -1,10 +1,7 @@
-from services.loader.mcp_client import MCPClient
-from llama_index.llms.ollama import Ollama
 import os
 from fastapi import FastAPI, UploadFile, Form
 from typing import Annotated
 import uvicorn
-import requests
 import httpx
 
 host = os.getenv("HOST", "http://localhost")
@@ -40,12 +37,6 @@ async def app(file: UploadFile, username: str) -> dict:
     final_info = response.json().get("result")
 
     return {"result": final_info}
-
-    # extract stats from the photo
-
-    # send the stats to the loader service
-
-    # return the result to the user
 
 
 @fast_api.post("/")
