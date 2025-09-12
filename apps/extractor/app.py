@@ -33,7 +33,7 @@ async def app(file: UploadFile) -> dict:
 async def extract(file: UploadFile):
     result = await app(file)
     return result
-
+ 
 
 if __name__ == "__main__":
     uvicorn.run(fast_api, host="0.0.0.0", port=8000)
