@@ -1,7 +1,7 @@
 from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.llms.ollama import Ollama
 from llama_index.core.agent.workflow import FunctionAgent, ToolCall, ToolCallResult
-from llama_index.core.workflow import Context
+from llama_index.core.workflow import Context, Event
 from llama_index.core.tools import FunctionTool
 
 
@@ -16,39 +16,53 @@ Plan those actions out step by step.
 Then call the tools you need to complete the task.
 
 Sometimes you need to use the output of one tool as input to another tool.
+
+You must use tools to complete the task.
+
+The stats can only be added to the databse using the user_id and not the username.
+Retrieve the user_id first before adding stats.
             """
         self.llm = llm
         self.tools = tools
         self.set_agent()
 
     async def interpret(self, info: str):
-        for tool in self.tools:
-            print(
-                f"><><><><><><<><> Tool available: {tool.metadata.get_name()} - {tool.metadata.description}"
-            )
+        print(f"""Agent info:
+              input: {info}
+              model: {self.llm.model}
+              host: {
+            self.llm.base_url if isinstance(self.llm, Ollama) else self.llm.endpoint_url
+        }
+              tools: {
+            [
+                f"name:{tool.metadata.get_name()} descr:{tool.metadata.description} \
+                        "
+                for tool in self.tools
+            ]
+        }""")
+
         agent = self.agent
-        
+
         context = Context(agent)
 
         handler = agent.run(info, ctx=context)
 
         print("Starting to stream events...")
 
-        saw_tool = False
+        tool_calls: list[Event] = []
 
         async for event in handler.stream_events():
             # log ALL event types while debugging
             print(f"[{event.__class__.__name__}]")
             if isinstance(event, ToolCall):
-                saw_tool = True
                 print(f"Calling tool {event.tool_name} with kwargs {event.tool_kwargs}")
+                tool_calls.append(event)
             elif isinstance(event, ToolCallResult):
                 print(f"Tool {event.tool_name} returned {event.tool_output}")
+                tool_calls.append(event)
 
-        if not saw_tool:
-            print("No ToolCall events were emitted during streaming.")
-        return "OK"
-    
+        return [tool_call.model_dump() for tool_call in tool_calls]
+
     def set_agent(self):
         agent = FunctionAgent(
             name="Agent",
@@ -56,6 +70,6 @@ Sometimes you need to use the output of one tool as input to another tool.
             tools=self.tools,
             description="An agent that can work with Tools.",
             system_prompt=self.system_prompt,
-            streaming=False
+            streaming=False,
         )
-        self.agent= agent
+        self.agent = agent

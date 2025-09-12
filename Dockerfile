@@ -1,13 +1,24 @@
-FROM public.ecr.aws/lambda/python:3.12
+FROM python:slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 ARG service
-ENV SERVICE="${service}"
+ENV SERVICE=${service}
 
-COPY $SERVICE ${LAMBDA_TASK_ROOT}
-COPY pyproject.toml ${LAMBDA_TASK_ROOT}
-COPY uv.lock ${LAMBDA_TASK_ROOT}
+WORKDIR /app
 
-RUN uv pip install -r ${LAMBDA_TASK_ROOT}/pyproject.toml --system
+COPY pyproject.toml .
+COPY uv.lock .
 
-CMD [ "handler_lambda.handler" ]
+RUN uv venv && . .venv/bin/activate \
+    && uv pip install -r pyproject.toml  \
+    && uv sync
+
+COPY services/$SERVICE services/$SERVICE
+
+COPY apps/$SERVICE/app.py /app/app.py
+
+COPY services/__init__.py services/__init__.py
+
+EXPOSE 8000
+
+CMD [ "uv", "run", "app.py" ]
