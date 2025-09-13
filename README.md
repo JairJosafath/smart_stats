@@ -54,3 +54,12 @@ curl --location 'localhost:8000' \
 ```
 
 Depending on the compute power of your machine, it can take a while to process the request.
+
+the output should be similar to the ./test_output.json file. It just shows all of the toolcalls that were made by the agent.
+
+### What the agent does
+
+1. The agent lists alls the tools it has access to from the mcp server.
+2. The agent then understands that it first needs the user_id to add the stats for the user.
+3. The agent then calls the get_user_id tool with the username provided in the request.
+4. The agent then stores the stats using the user_id for the user.

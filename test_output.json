@@ -1,0 +1,934 @@
+{
+    "result": [
+        {
+            "tool_name": "get_user_id_by_username",
+            "tool_kwargs": {
+                "user_name": "Ben_Kim"
+            },
+            "tool_id": "get_user_id_by_username"
+        },
+        {
+            "tool_name": "get_user_id_by_username",
+            "tool_kwargs": {
+                "user_name": "Ben_Kim"
+            },
+            "tool_id": "get_user_id_by_username",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='832', annotations=None, meta=None)] structuredContent={'result': 832} isError=False"
+                    }
+                ],
+                "tool_name": "get_user_id_by_username",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "user_name": "Ben_Kim"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "832",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": 832
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Eliminations",
+                "user_id": "832",
+                "value": "7"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Eliminations",
+                "user_id": "832",
+                "value": "7"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Eliminations with value 7 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Eliminations with value 7 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Eliminations",
+                        "user_id": "832",
+                        "value": "7"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Eliminations with value 7 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Eliminations with value 7 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Assists",
+                "user_id": "832",
+                "value": "0"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Assists",
+                "user_id": "832",
+                "value": "0"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Assists with value 0 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Assists with value 0 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Assists",
+                        "user_id": "832",
+                        "value": "0"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Assists with value 0 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Assists with value 0 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Revives",
+                "user_id": "832",
+                "value": "0"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Revives",
+                "user_id": "832",
+                "value": "0"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Revives with value 0 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Revives with value 0 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Revives",
+                        "user_id": "832",
+                        "value": "0"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Revives with value 0 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Revives with value 0 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Head Shots",
+                "user_id": "832",
+                "value": "4"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Head Shots",
+                "user_id": "832",
+                "value": "4"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Head Shots with value 4 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Head Shots with value 4 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Head Shots",
+                        "user_id": "832",
+                        "value": "4"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Head Shots with value 4 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Head Shots with value 4 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Hits",
+                "user_id": "832",
+                "value": "949"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Hits",
+                "user_id": "832",
+                "value": "949"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Hits with value 949 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Hits with value 949 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Hits",
+                        "user_id": "832",
+                        "value": "949"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Hits with value 949 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Hits with value 949 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage Taken",
+                "user_id": "832",
+                "value": "430"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage Taken",
+                "user_id": "832",
+                "value": "430"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Damage Taken with value 430 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Damage Taken with value 430 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Damage Taken",
+                        "user_id": "832",
+                        "value": "430"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Damage Taken with value 430 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Damage Taken with value 430 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage To Players",
+                "user_id": "832",
+                "value": "58"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage To Players",
+                "user_id": "832",
+                "value": "58"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Damage To Players with value 58 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Damage To Players with value 58 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Damage To Players",
+                        "user_id": "832",
+                        "value": "58"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Damage To Players with value 58 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Damage To Players with value 58 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage To Structures",
+                "user_id": "832",
+                "value": "2,749"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Damage To Structures",
+                "user_id": "832",
+                "value": "2,749"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Damage To Structures with value 2,749 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Damage To Structures with value 2,749 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Damage To Structures",
+                        "user_id": "832",
+                        "value": "2,749"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Damage To Structures with value 2,749 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Damage To Structures with value 2,749 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Materials Gathered",
+                "user_id": "832",
+                "value": "980"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Materials Gathered",
+                "user_id": "832",
+                "value": "980"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Materials Gathered with value 980 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Materials Gathered with value 980 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Materials Gathered",
+                        "user_id": "832",
+                        "value": "980"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Materials Gathered with value 980 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Materials Gathered with value 980 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Materials Used",
+                "user_id": "832",
+                "value": "110"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Materials Used",
+                "user_id": "832",
+                "value": "110"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Materials Used with value 110 added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Materials Used with value 110 added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Materials Used",
+                        "user_id": "832",
+                        "value": "110"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Materials Used with value 110 added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Materials Used with value 110 added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Distance Traveled",
+                "user_id": "832",
+                "value": "1 km"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Distance Traveled",
+                "user_id": "832",
+                "value": "1 km"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Distance Traveled with value 1 km added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Distance Traveled with value 1 km added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Distance Traveled",
+                        "user_id": "832",
+                        "value": "1 km"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Distance Traveled with value 1 km added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Distance Traveled with value 1 km added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db"
+        },
+        {
+            "tool_name": "add_stat_to_db",
+            "tool_kwargs": {
+                "stat_name": "Accuracy",
+                "user_id": "832",
+                "value": "14%"
+            },
+            "tool_id": "add_stat_to_db",
+            "tool_output": {
+                "blocks": [
+                    {
+                        "block_type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='Stat Accuracy with value 14% added to database.', annotations=None, meta=None)] structuredContent={'result': 'Stat Accuracy with value 14% added to database.'} isError=False"
+                    }
+                ],
+                "tool_name": "add_stat_to_db",
+                "raw_input": {
+                    "args": [],
+                    "kwargs": {
+                        "stat_name": "Accuracy",
+                        "user_id": "832",
+                        "value": "14%"
+                    }
+                },
+                "raw_output": {
+                    "meta": null,
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Stat Accuracy with value 14% added to database.",
+                            "annotations": null,
+                            "meta": null
+                        }
+                    ],
+                    "structuredContent": {
+                        "result": "Stat Accuracy with value 14% added to database."
+                    },
+                    "isError": false
+                },
+                "is_error": false
+            },
+            "return_direct": false
+        }
+    ]
+}
