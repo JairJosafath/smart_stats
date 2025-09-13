@@ -28,6 +28,12 @@ docker rm -f smart_stats_extractor || true
 docker run --name smart_stats_extractor -e HOST="http://host.docker.internal" -p 9997:8000 smart_stats_extractor:latest
 
 
+#smart_stats
+docker build -t smart_stats:latest --build-arg service=smart_stats .
+
+docker rm -f smart_stats || true
+
+docker run --name smart_stats -e HOST="http://host.docker.internal" -p 8000:8000 smart_stats:latest
 
 #inspector
 npx @modelcontextprotocol/inspector

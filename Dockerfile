@@ -11,7 +11,7 @@ COPY uv.lock .
 
 RUN uv venv && . .venv/bin/activate \
     && uv pip install -r pyproject.toml  \
-    && uv sync
+    && uv sync --group $SERVICE --no-dev
 
 COPY services/$SERVICE services/$SERVICE
 
@@ -21,4 +21,4 @@ COPY services/__init__.py services/__init__.py
 
 EXPOSE 8000
 
-CMD [ "uv", "run", "app.py" ]
+CMD [ "uv", "run", "app.py"]

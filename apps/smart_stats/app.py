@@ -5,8 +5,6 @@ import uvicorn
 import httpx
 
 host = os.getenv("HOST", "http://localhost")
-extractor_service_url = os.getenv("EXTRACTOR_SERVICE_URL", "http://localhost:9997")
-loader_service_url = os.getenv("LOADER_SERVICE_URL", "http://localhost:9998")
 
 fast_api = FastAPI()
 
@@ -20,16 +18,14 @@ async def app(file: UploadFile, username: str) -> dict:
 
     async with httpx.AsyncClient() as client:
         timeout = httpx.Timeout(60000.0, connect=5.0)  # Adjust timeouts as needed
-        response = await client.post(
-            f"{extractor_service_url}", files=files, timeout=timeout
-        )
+        response = await client.post(f"{host}:9997", files=files, timeout=timeout)
     response.raise_for_status()
     extracted_info = response.json().get("result")
 
     async with httpx.AsyncClient() as client:
         timeout = httpx.Timeout(60000.0, connect=5.0)  # Adjust timeouts as needed
         response = await client.post(
-            f"{loader_service_url}",
+            f"{host}:9998",
             json={"content": extracted_info, "username": username},
             timeout=timeout,
         )
